@@ -1,0 +1,40 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# Serenity / test reports
+target/
+serenity-output/
+serenity-report/
+reports/
+**/serenity-report/
+**/target/site/serenity/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Selenium / browser artifacts
+selenium-debug.log
