@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'io.github.jumosqu12.screenplayarchitecture' version '2.0.1'
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+group 'co.edu.udea.certificacion.saucedemo'
+
+java {
+    // Ajustado a Java 21 para que coincida con tu terminal y evitar conflictos de compilación
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.1.0'
+    serenityCucumberVersion = '4.1.0'
+    // Usamos una versión reciente para evitar incompatibilidades del procesador de anotaciones con el JDK actual
+    lombokVersion = '1.18.36'
+    junit = '4.13.2'
+    hamcrest = '1.3'
+    serenityWebVersion = '4.1.0'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityWebVersion"
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
+
+    // Test compilation
+    testImplementation "junit:junit:$rootProject.ext.junit"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrest"
+    testImplementation("io.github.bonigarcia:webdrivermanager:5.4.1")
+
+    // Lombok dependencies actualizadas y con su procesador de pruebas habilitado
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    // Additional library
+    implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.12.0'
+}
+
+tasks.named('test') {
+    // System configs
+}

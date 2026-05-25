@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Cart management on Sauce Demo" skipped="0" tests="3" time="3.57" timestamp="2026-05-25 02:36:18"><testcase name="Failed login with invalid credentials"/><testcase name="E2E cart happy path - add and remove items"/><testcase name="Checkout blocked by empty shipping fields"/></testsuite>
