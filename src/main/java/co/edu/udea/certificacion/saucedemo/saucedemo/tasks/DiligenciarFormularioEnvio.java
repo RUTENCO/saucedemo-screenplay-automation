@@ -2,6 +2,7 @@ package co.edu.udea.certificacion.saucedemo.saucedemo.tasks;
 
 import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.EnterText;
 import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.ClickOn;
+import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.Pause;
 import co.edu.udea.certificacion.saucedemo.saucedemo.userinterfaces.CheckoutPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -27,9 +28,13 @@ public class DiligenciarFormularioEnvio implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 new EnterText(CheckoutPage.FIRST_NAME, firstName),
+                Pause.forConfiguredDuration(),
                 new EnterText(CheckoutPage.LAST_NAME, lastName),
+                Pause.forConfiguredDuration(),
                 new EnterText(CheckoutPage.POSTAL_CODE, postalCode),
-                ClickOn.the(CheckoutPage.CONTINUE_BUTTON)
+                Pause.forConfiguredDuration(),
+                ClickOn.the(CheckoutPage.CONTINUE_BUTTON),
+                Pause.forConfiguredDuration()
         );
     }
 }

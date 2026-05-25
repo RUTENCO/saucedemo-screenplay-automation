@@ -9,11 +9,14 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 public class StepDefinition {
 
     @Before
-    public void config(){
+    public void config() {
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("user");
     }
 
-    @Given("This method is responsible for parameterizing the instantiation of chromedriver")    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() {         OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed("pages.swaglabsUrl"));    }
+    @Given("This method is responsible for parameterizing the instantiation of chromedriver")
+    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() {
+        OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed("pages.swaglabsUrl"));
+    }
 
 }
