@@ -1,6 +1,6 @@
 package co.edu.udea.certificacion.saucedemo.saucedemo.tasks;
 
-import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.EsperarYInteractuar;
+import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.ClickOn;
 import co.edu.udea.certificacion.saucedemo.saucedemo.userinterfaces.CatalogPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -21,7 +21,7 @@ public class AgregarProducto implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                EsperarYInteractuar.clickOn(CatalogPage.addButtonFor(productName))
+                ClickOn.the(CatalogPage.addButtonFor(productName))
         );
     }
 }

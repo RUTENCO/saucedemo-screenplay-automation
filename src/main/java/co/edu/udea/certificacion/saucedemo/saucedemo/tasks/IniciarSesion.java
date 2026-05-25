@@ -1,6 +1,7 @@
 package co.edu.udea.certificacion.saucedemo.saucedemo.tasks;
 
-import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.EsperarYInteractuar;
+import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.EnterText;
+import co.edu.udea.certificacion.saucedemo.saucedemo.interactions.ClickOn;
 import co.edu.udea.certificacion.saucedemo.saucedemo.userinterfaces.LoginPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -23,9 +24,9 @@ public class IniciarSesion implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                EsperarYInteractuar.enterValue(LoginPage.USERNAME, username),
-                EsperarYInteractuar.enterValue(LoginPage.PASSWORD, password),
-                EsperarYInteractuar.clickOn(LoginPage.LOGIN_BUTTON)
+                new EnterText(LoginPage.USERNAME, username),
+                new EnterText(LoginPage.PASSWORD, password),
+                ClickOn.the(LoginPage.LOGIN_BUTTON)
         );
     }
 }
